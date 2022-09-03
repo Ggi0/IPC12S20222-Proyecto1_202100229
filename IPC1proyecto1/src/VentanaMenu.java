@@ -242,7 +242,7 @@ public class VentanaMenu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -261,7 +261,7 @@ public class VentanaMenu extends javax.swing.JFrame {
     private void btt_CrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_CrearCuentaActionPerformed
         // TODO add your handling code here:
         
-        VcrearCuenta crearCuenta = new VcrearCuenta();
+        VcrearCuentas crearCuenta = new VcrearCuentas();
         crearCuenta.setVisible(true);
         
         this.setVisible(false);
@@ -307,6 +307,11 @@ public class VentanaMenu extends javax.swing.JFrame {
 
     private void btt_InfoClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_InfoClientesActionPerformed
         // TODO add your handling code here:
+        VinfoClientes llamarVentana = new VinfoClientes();
+        llamarVentana.setVisible(true);
+        
+        this.setVisible(false);
+        //new VentanaMenu().setVisible(false);
     }//GEN-LAST:event_btt_InfoClientesActionPerformed
 
     private void btt_DepositoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_DepositoMouseEntered

@@ -1,3 +1,7 @@
+
+import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,6 +12,7 @@
  * @author Administrador
  */
 public class VinfoClientes extends javax.swing.JFrame {
+    public static String[][] TablaInfoClientes;
 
     /**
      * Creates new form VinfoClientes
@@ -26,15 +31,30 @@ public class VinfoClientes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaInfo = new javax.swing.JTable();
+        btt_Buscar = new javax.swing.JButton();
+        txt_cui = new javax.swing.JTextField();
+        btt_menu = new javax.swing.JButton();
+        btt_Actualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 42)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel1.setText("Información");
+
+        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+
+        tablaInfo.setBackground(new java.awt.Color(255, 204, 102));
+        tablaInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tablaInfo.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        tablaInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -46,30 +66,137 @@ public class VinfoClientes extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tablaInfo.setAutoscrolls(false);
+        tablaInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tablaInfo.setGridColor(new java.awt.Color(0, 0, 0));
+        tablaInfo.setSelectionBackground(new java.awt.Color(255, 153, 51));
+        tablaInfo.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setViewportView(tablaInfo);
+
+        btt_Buscar.setBackground(new java.awt.Color(255, 204, 51));
+        btt_Buscar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        btt_Buscar.setText("Buscar cuentas asociadas");
+        btt_Buscar.setActionCommand("");
+        btt_Buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btt_BuscarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btt_BuscarMouseExited(evt);
+            }
+        });
+        btt_Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btt_BuscarActionPerformed(evt);
+            }
+        });
+
+        txt_cui.setBackground(new java.awt.Color(255, 255, 255));
+        txt_cui.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txt_cui.setForeground(new java.awt.Color(0, 0, 0));
+        txt_cui.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_cui.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        btt_menu.setBackground(new java.awt.Color(255, 204, 51));
+        btt_menu.setFont(new java.awt.Font("Gill Sans MT", 1, 36)); // NOI18N
+        btt_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu.png"))); // NOI18N
+        btt_menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btt_menuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btt_menuMouseExited(evt);
+            }
+        });
+        btt_menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btt_menuActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(txt_cui, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btt_Buscar)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btt_menu)))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_cui, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(btt_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        btt_Actualizar.setBackground(new java.awt.Color(255, 204, 51));
+        btt_Actualizar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        btt_Actualizar.setText("Actualizar");
+        btt_Actualizar.setActionCommand("");
+        btt_Actualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btt_ActualizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btt_ActualizarMouseExited(evt);
+            }
+        });
+        btt_Actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btt_ActualizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btt_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(191, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btt_Actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,6 +205,71 @@ public class VinfoClientes extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btt_ActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_ActualizarMouseEntered
+        // TODO add your handling code here:
+        btt_Actualizar.setBackground(new java.awt.Color(255,153,51));
+    }//GEN-LAST:event_btt_ActualizarMouseEntered
+
+    private void btt_ActualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_ActualizarMouseExited
+        // TODO add your handling code here:
+        btt_Actualizar.setBackground(new java.awt.Color(255,204,51));
+    }//GEN-LAST:event_btt_ActualizarMouseExited
+
+    private void btt_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_ActualizarActionPerformed
+
+        //   Llamando datos de los clientes para colocarlo en la tabla
+        VregistrarCliente crearCliente = new VregistrarCliente();
+        Cliente[] paraTabla = crearCliente.listaClientes;
+        
+        //---------------------------------------------------[Filas][Columnas]        
+        TablaInfoClientes = new String[paraTabla.length][3];
+        
+        for(int i = 0; i < paraTabla.length; i++){
+            if(paraTabla[i] != null){
+                //Del arreglo a la matriz
+                TablaInfoClientes[i][0] = String.valueOf(paraTabla[i].getCui());//las tablas solo leen texto
+                TablaInfoClientes[i][1] = paraTabla[i].getNombre();
+                TablaInfoClientes[i][2] = paraTabla[i].getApellido();
+            }            
+        }
+        
+        //modelo de datos
+        //Pra los titulos de las columnas (ENCABEZADO)
+        String[] titulos = {"CUI", "Nombre", "Apellido"};
+        tablaInfo.setModel(new DefaultTableModel(TablaInfoClientes, titulos));
+        
+
+    }//GEN-LAST:event_btt_ActualizarActionPerformed
+
+    private void btt_BuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_BuscarMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btt_BuscarMouseEntered
+
+    private void btt_BuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_BuscarMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btt_BuscarMouseExited
+
+    private void btt_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_BuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btt_BuscarActionPerformed
+
+    private void btt_menuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_menuMouseEntered
+        // TODO add your handling code here:
+        btt_menu.setBackground(new java.awt.Color(255,153,51));
+    }//GEN-LAST:event_btt_menuMouseEntered
+
+    private void btt_menuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_menuMouseExited
+        // TODO add your handling code here:
+        btt_menu.setBackground(new java.awt.Color(255,204,51));
+    }//GEN-LAST:event_btt_menuMouseExited
+
+    private void btt_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_menuActionPerformed
+        // TODO add your handling code here:
+        VentanaMenu regresar = new VentanaMenu();
+        regresar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btt_menuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,8 +307,14 @@ public class VinfoClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btt_Actualizar;
+    private javax.swing.JButton btt_Buscar;
+    private javax.swing.JButton btt_menu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaInfo;
+    private javax.swing.JTextField txt_cui;
     // End of variables declaration//GEN-END:variables
 }
