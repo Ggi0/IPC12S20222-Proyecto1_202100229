@@ -267,37 +267,44 @@ public class Vdepositar extends javax.swing.JFrame {
 
     private void btt_depositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_depositarActionPerformed
 
-//        VregistrarCliente lista = new VregistrarCliente();
-//        Cliente[] verCuentasA = lista.listaClientes;
-//
-//        if (txt_cui.getText().equals("") || txt_monto.getText().equals("")) {
-//            JOptionPane.showMessageDialog(null, "No dejar campos vacios", "Información", JOptionPane.WARNING_MESSAGE);
-//        } else {
-//
-//
-//            int valorElegido = cbx_cuentas.getSelectedIndex();
-//            //double monto = verCuentasA[valorElegido].getCuentasAsociadas()[valorElegido].getSaldo();
-//
-//            //Para hacer las cuentas
-//            Cuenta nuevaCuenta = new Cuenta(id, cui, saldo);
-//
+        VregistrarCliente lista = new VregistrarCliente();
+        VcrearCuentas ver = new VcrearCuentas();
+        Cliente[] cuentasA = lista.listaClientes;
+
+        if (txt_cui.getText().equals("") || txt_monto.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "No dejar campos vacios", "Información", JOptionPane.WARNING_MESSAGE);
+        } else {
+            if (Double.parseDouble(txt_monto.getText()) <= 0) {
+                JOptionPane.showMessageDialog(null, "Valor invalido", "Información", JOptionPane.WARNING_MESSAGE);
+
+            } else {
+
+                int valorElegido = cbx_cuentas.getSelectedIndex();
+                for (int i = 0; i < cuentasA.length; i++) {
+                    if (cuentasA[i] != null) {
+                        if (cuentasA[i].getCui() == Integer.parseInt(txt_cui.getText())) {
+                            for (int j = 0; j < cuentasA[i].getCuentasAsociadas().length; j++) {
+                                if (cuentasA[i].getCuentasAsociadas()[valorElegido] != null) {
+
+                                    cuentasA[i].getCuentasAsociadas()[valorElegido].saldo += Double.parseDouble(txt_monto.getText());
+                                    JOptionPane.showMessageDialog(null, "Saldo en la cuenta " + cuentasA[i].getCuentasAsociadas()[valorElegido].getId() + " de " + cuentasA[i].getNombre() + cuentasA[i].getApellido() + "\nes de Q" + cuentasA[i].getCuentasAsociadas()[valorElegido].getSaldo(), "Deposito correcto", JOptionPane.INFORMATION_MESSAGE);
+                                    txt_monto.setText("");
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+            //double monto = verCuentasA[valorElegido].getCuentasAsociadas()[valorElegido].getSaldo();
+
+
 //            try {
-//                boolean bandera = false;
-//                //AQUI SE AGREGAN LAS CUENTAS
-//                for (int i = 0; i < lista.listaClientes[valorElegido].getCuentasAsociadas().length; i++) {
-//                    if (lista.listaClientes[valorElegido].getCuentasAsociadas()[i] == null) {
-//                        lista.listaClientes[valorElegido].getCuentasAsociadas()[i] = nuevaCuenta;
-//                        JOptionPane.showMessageDialog(null, "Cuenta creada exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
-//                        bandera = true;
-//                        break;
-//                    }
-//                }
-//                if (bandera == false) {
-//                    JOptionPane.showMessageDialog(null, "No es posible crear más cuentas para este cliente", "Limite de usuarios", JOptionPane.ERROR_MESSAGE);
-//                }
-//                for (int i = 0; i < lista.listaClientes.length; i++) {
-//                    lista.listaClientes[valorElegido].getCuentasAsociadas()[i].imprimirCuenta();
-//                }
+//       
 //
 //            } catch (NullPointerException ex) {
 //            }

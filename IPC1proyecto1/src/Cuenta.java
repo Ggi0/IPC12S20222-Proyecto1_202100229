@@ -11,7 +11,7 @@ public class Cuenta {
     //ATRIBUTOS
     private int id;
     private int dpiCliente;
-    private double saldo;
+    double saldo;
     
     
     
