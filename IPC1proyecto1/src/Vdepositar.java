@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -29,17 +32,21 @@ public class Vdepositar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         txt_cui = new javax.swing.JTextField();
-        txt_Apellido = new javax.swing.JTextField();
+        txt_monto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        cbx_clientes = new javax.swing.JComboBox<>();
+        cbx_cuentas = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        btt_crear = new javax.swing.JButton();
+        btt_depositar = new javax.swing.JButton();
         btt_menu = new javax.swing.JButton();
+        btt_buscar = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,11 +65,11 @@ public class Vdepositar extends javax.swing.JFrame {
         txt_cui.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_cui.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        txt_Apellido.setBackground(new java.awt.Color(255, 255, 255));
-        txt_Apellido.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        txt_Apellido.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Apellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_Apellido.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txt_monto.setBackground(new java.awt.Color(255, 255, 255));
+        txt_monto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txt_monto.setForeground(new java.awt.Color(0, 0, 0));
+        txt_monto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_monto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel2.setBackground(new java.awt.Color(255, 51, 0));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -76,10 +83,10 @@ public class Vdepositar extends javax.swing.JFrame {
         jLabel3.setText("CUI:");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        cbx_clientes.setBackground(new java.awt.Color(255, 255, 255));
-        cbx_clientes.addActionListener(new java.awt.event.ActionListener() {
+        cbx_cuentas.setBackground(new java.awt.Color(255, 255, 255));
+        cbx_cuentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbx_clientesActionPerformed(evt);
+                cbx_cuentasActionPerformed(evt);
             }
         });
 
@@ -89,20 +96,20 @@ public class Vdepositar extends javax.swing.JFrame {
         jLabel4.setText("Monto:");
         jLabel4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        btt_crear.setBackground(new java.awt.Color(255, 204, 51));
-        btt_crear.setFont(new java.awt.Font("Gill Sans MT", 1, 36)); // NOI18N
-        btt_crear.setText("Depositar");
-        btt_crear.addMouseListener(new java.awt.event.MouseAdapter() {
+        btt_depositar.setBackground(new java.awt.Color(255, 204, 51));
+        btt_depositar.setFont(new java.awt.Font("Gill Sans MT", 1, 36)); // NOI18N
+        btt_depositar.setText("Depositar");
+        btt_depositar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btt_crearMouseEntered(evt);
+                btt_depositarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btt_crearMouseExited(evt);
+                btt_depositarMouseExited(evt);
             }
         });
-        btt_crear.addActionListener(new java.awt.event.ActionListener() {
+        btt_depositar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btt_crearActionPerformed(evt);
+                btt_depositarActionPerformed(evt);
             }
         });
 
@@ -123,6 +130,23 @@ public class Vdepositar extends javax.swing.JFrame {
             }
         });
 
+        btt_buscar.setBackground(new java.awt.Color(255, 204, 51));
+        btt_buscar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        btt_buscar.setText("Buscar");
+        btt_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btt_buscarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btt_buscarMouseExited(evt);
+            }
+        });
+        btt_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btt_buscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -130,9 +154,8 @@ public class Vdepositar extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cbx_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_cui, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbx_cuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_monto, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
@@ -142,11 +165,17 @@ public class Vdepositar extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btt_crear, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addComponent(btt_depositar, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btt_menu)
                 .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(txt_cui, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,23 +183,22 @@ public class Vdepositar extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_cui, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btt_buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txt_cui, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
-                .addComponent(cbx_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbx_cuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_monto, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(btt_crear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btt_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(14, 14, 14))
+                    .addComponent(btt_depositar)
+                    .addComponent(btt_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -204,13 +232,13 @@ public class Vdepositar extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbx_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_clientesActionPerformed
+    private void cbx_cuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_cuentasActionPerformed
         //        //obtener la informacion de un comboBox
         //
         //        //toma el valor del combobox selecionado
@@ -225,55 +253,58 @@ public class Vdepositar extends javax.swing.JFrame {
         //        //-------------------------Buscar en la listaClientes el valor seleccionado del comboBox e imprimir el apellido
         //        System.out.println(pf.listaClientes[valorElegido].getApellido());
         //
-    }//GEN-LAST:event_cbx_clientesActionPerformed
+    }//GEN-LAST:event_cbx_cuentasActionPerformed
 
-    private void btt_crearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_crearMouseEntered
+    private void btt_depositarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_depositarMouseEntered
         // TODO add your handling code here:
-        btt_crear.setBackground(new java.awt.Color(255,153,51));
-    }//GEN-LAST:event_btt_crearMouseEntered
+        btt_depositar.setBackground(new java.awt.Color(255,153,51));
+    }//GEN-LAST:event_btt_depositarMouseEntered
 
-    private void btt_crearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_crearMouseExited
+    private void btt_depositarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_depositarMouseExited
         // TODO add your handling code here:
-        btt_crear.setBackground(new java.awt.Color(255,204,51));
-    }//GEN-LAST:event_btt_crearMouseExited
+        btt_depositar.setBackground(new java.awt.Color(255,204,51));
+    }//GEN-LAST:event_btt_depositarMouseExited
 
-    private void btt_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_crearActionPerformed
-        // AGREGAR CLIENTES
-        //Hacer un nuevo cliente
-        //-----------------------------------------------Datos para REGISTRAR UN CLINETE
+    private void btt_depositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_depositarActionPerformed
 
-//        if (txt_cui.getText().equals("") || txt_Apellido.getText().equals("") || txt_Nombre.getText().equals("")) {
-//            JOptionPane.showMessageDialog(null, "\nNo dejar campos vacios", "Alerta", JOptionPane.ERROR_MESSAGE);
+//        VregistrarCliente lista = new VregistrarCliente();
+//        Cliente[] verCuentasA = lista.listaClientes;
+//
+//        if (txt_cui.getText().equals("") || txt_monto.getText().equals("")) {
+//            JOptionPane.showMessageDialog(null, "No dejar campos vacios", "Información", JOptionPane.WARNING_MESSAGE);
 //        } else {
-//            Cliente nuevoCliente = new Cliente(Integer.parseInt(txt_cui.getText()), txt_Apellido.getText(), txt_Nombre.getText());
+//
+//
+//            int valorElegido = cbx_cuentas.getSelectedIndex();
+//            //double monto = verCuentasA[valorElegido].getCuentasAsociadas()[valorElegido].getSaldo();
+//
+//            //Para hacer las cuentas
+//            Cuenta nuevaCuenta = new Cuenta(id, cui, saldo);
+//
 //            try {
 //                boolean bandera = false;
-//                //AQUI SE AGREGAN LOS CLIENTES
-//                for (int i = 0; i < listaClientes.length; i++) {
-//                    if (listaClientes[i] == null) {
-//                        listaClientes[i] = nuevoCliente;
-//                        JOptionPane.showMessageDialog(null, "Cliente creado exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+//                //AQUI SE AGREGAN LAS CUENTAS
+//                for (int i = 0; i < lista.listaClientes[valorElegido].getCuentasAsociadas().length; i++) {
+//                    if (lista.listaClientes[valorElegido].getCuentasAsociadas()[i] == null) {
+//                        lista.listaClientes[valorElegido].getCuentasAsociadas()[i] = nuevaCuenta;
+//                        JOptionPane.showMessageDialog(null, "Cuenta creada exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
 //                        bandera = true;
-//                        txt_cui.setText("");
-//                        txt_Apellido.setText("");
-//                        txt_Nombre.setText("");
 //                        break;
 //                    }
 //                }
 //                if (bandera == false) {
-//                    JOptionPane.showMessageDialog(null, "No es posible crear más clientes", "Limite de usuarios", JOptionPane.ERROR_MESSAGE);
-//                    txt_cui.setText("");
-//                    txt_Apellido.setText("");
-//                    txt_Nombre.setText("");
+//                    JOptionPane.showMessageDialog(null, "No es posible crear más cuentas para este cliente", "Limite de usuarios", JOptionPane.ERROR_MESSAGE);
 //                }
-//                for (int i = 0; i < listaClientes.length; i++) {
-//                    listaClientes[i].imprimir();
+//                for (int i = 0; i < lista.listaClientes.length; i++) {
+//                    lista.listaClientes[valorElegido].getCuentasAsociadas()[i].imprimirCuenta();
 //                }
+//
 //            } catch (NullPointerException ex) {
-//                System.out.println("hay error");
 //            }
-//        }
-    }//GEN-LAST:event_btt_crearActionPerformed
+        
+        
+
+    }//GEN-LAST:event_btt_depositarActionPerformed
 
     private void btt_menuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_menuMouseEntered
         // TODO add your handling code here:
@@ -292,6 +323,42 @@ public class Vdepositar extends javax.swing.JFrame {
         regresar.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btt_menuActionPerformed
+
+    private void btt_buscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_buscarMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btt_buscarMouseEntered
+
+    private void btt_buscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_buscarMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btt_buscarMouseExited
+
+    private void btt_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_buscarActionPerformed
+
+        //MOSTRNADO LOS DATOS DE LA CUENTA EN UN ComboBox
+        VregistrarCliente lista = new VregistrarCliente();
+        Cliente[] verCuentasA = lista.listaClientes;
+
+        if (txt_cui.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese un CUI", "Información", JOptionPane.WARNING_MESSAGE);
+        } else {
+            for (int i = 0; i < verCuentasA.length; i++) {
+                if (verCuentasA[i] != null) {
+                    //recorriendo para saber si que el cui ingresado sea igual 
+                    if (verCuentasA[i].getCui() == Integer.parseInt(txt_cui.getText())) {
+
+                        cbx_cuentas.removeAllItems();
+                        for (int j = 0; j < verCuentasA[i].getCuentasAsociadas().length; j++) {
+                            if (verCuentasA[i].getCuentasAsociadas()[j] != null) {
+                                cbx_cuentas.addItem(String.valueOf(verCuentasA[i].getCuentasAsociadas()[j].getId()) + " " + verCuentasA[i].getNombre() + " " + verCuentasA[i].getApellido());
+                            }
+                        }                     
+                    }
+                }
+            }
+            
+        }
+        
+    }//GEN-LAST:event_btt_buscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,16 +396,18 @@ public class Vdepositar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btt_crear;
+    private javax.swing.JButton btt_buscar;
+    private javax.swing.JButton btt_depositar;
     private javax.swing.JButton btt_menu;
-    private javax.swing.JComboBox<String> cbx_clientes;
+    private javax.swing.JComboBox<String> cbx_cuentas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField txt_Apellido;
     private javax.swing.JTextField txt_cui;
+    private javax.swing.JTextField txt_monto;
     // End of variables declaration//GEN-END:variables
 }

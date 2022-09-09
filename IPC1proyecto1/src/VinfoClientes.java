@@ -301,9 +301,7 @@ public class VinfoClientes extends javax.swing.JFrame {
 
     private void btt_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_BuscarActionPerformed
 
-        //if(txt_BuscarCUI.getText() ==)
-        //VcrearCuentas tblaCA = new VcrearCuentas();
-        //Cuenta[] verCuentaA = tblaCA.getCuentasAsociadas;
+        //MOSTRNADO LOS DATOS EN UNA TABLA
         VregistrarCliente paraTabla = new VregistrarCliente();
         Cliente[] verCuentasA = paraTabla.listaClientes;
 
@@ -317,6 +315,7 @@ public class VinfoClientes extends javax.swing.JFrame {
                     //recorriendo para saber si que el cui ingresado sea igual 
                     if (verCuentasA[i].getCui() == Integer.parseInt(txt_BuscarCUI.getText())) {
                         //System.out.println("posicion: " + i + " " + verCuentasA[i].getCui() + " = " + "dpi ingresado : " + txt_BuscarCUI.getText());
+                        //inicializando tabla
                         TablaInfoCuentas = new String[verCuentasA[i].getCuentasAsociadas().length][1];
 
                         for (int j = 0; j < verCuentasA[i].getCuentasAsociadas().length; j++) {
@@ -328,7 +327,7 @@ public class VinfoClientes extends javax.swing.JFrame {
                         }
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "El CUI ingresado no pertenece a ningun cliente", "Información", JOptionPane.WARNING_MESSAGE);
+                        //JOptionPane.showMessageDialog(null, "El CUI ingresado no pertenece a ningun cliente", "Información", JOptionPane.WARNING_MESSAGE);
                     }
 
                 }

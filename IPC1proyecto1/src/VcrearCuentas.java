@@ -263,33 +263,25 @@ public class VcrearCuentas extends javax.swing.JFrame {
         //Para hacer las cuentas
         Cuenta nuevaCuenta = new Cuenta(id, cui, saldo);
         
-        try{
+        try {
             boolean bandera = false;
             //AQUI SE AGREGAN LAS CUENTAS
-            for(int i= 0; i < lista.listaClientes[valorElegido].getCuentasAsociadas().length; i++){
-                if(lista.listaClientes[valorElegido].getCuentasAsociadas()[i] == null){
-                    lista.listaClientes[valorElegido].getCuentasAsociadas()[i] = nuevaCuenta; 
+            for (int i = 0; i < lista.listaClientes[valorElegido].getCuentasAsociadas().length; i++) {
+                if (lista.listaClientes[valorElegido].getCuentasAsociadas()[i] == null) {
+                    lista.listaClientes[valorElegido].getCuentasAsociadas()[i] = nuevaCuenta;
                     JOptionPane.showMessageDialog(null, "Cuenta creada exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
                     bandera = true;
-                    break;     
+                    break;
                 }
             }
-            
-            if(bandera == false){
-                    JOptionPane.showMessageDialog(null, "No es posible crear más cuentas para este cliente", "Limite de usuarios", JOptionPane.ERROR_MESSAGE);
+            if (bandera == false) {
+                JOptionPane.showMessageDialog(null, "No es posible crear más cuentas para este cliente", "Limite de usuarios", JOptionPane.ERROR_MESSAGE);
             }
-        
-            for(int i= 0; i < lista.listaClientes.length; i++){
-                    lista.listaClientes[valorElegido].getCuentasAsociadas()[i].imprimirCuenta();
+            for (int i = 0; i < lista.listaClientes.length; i++) {
+                lista.listaClientes[valorElegido].getCuentasAsociadas()[i].imprimirCuenta();
             }
-            
-        }catch(NullPointerException ex){            
+        } catch (NullPointerException ex) {
         }
- 
-         
-        
-        
-        
         
     }//GEN-LAST:event_btt_crearActionPerformed
 
