@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -38,6 +41,7 @@ public class VcrearCuentas extends javax.swing.JFrame {
         btt_crear = new javax.swing.JButton();
         btt_menu = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        lbl_indice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,44 +117,55 @@ public class VcrearCuentas extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Cliente:");
 
+        lbl_indice.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        lbl_indice.setForeground(new java.awt.Color(0, 0, 0));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cbx_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(btt_Actualizar))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_indice, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cbx_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(btt_Actualizar))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(btt_crear, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btt_menu)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btt_menu)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cbx_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btt_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btt_crear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btt_Actualizar))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(btt_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cbx_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(lbl_indice, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)
+                        .addComponent(btt_crear))
+                    .addComponent(btt_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -160,17 +175,17 @@ public class VcrearCuentas extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(15, 15, 15)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -188,14 +203,26 @@ public class VcrearCuentas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbx_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_clientesActionPerformed
-        // TODO add your handling code here:
-        
-
+//        //obtener la informacion de un comboBox
+//       
+//        //toma el valor del combobox selecionado
+//        //lo combiete en string 
+//        //y lo coloca en el lable indice            
+//        lbl_indice.setText(String.valueOf(cbx_clientes.getSelectedIndex()));
+//        
+//        //Toma el valor del combo box y lo pasa la entero valorElegido
+//        int valorElegido = cbx_clientes.getSelectedIndex();
+//        VregistrarCliente pf = new VregistrarCliente();
+//        
+//        //-------------------------Buscar en la listaClientes el valor seleccionado del comboBox e imprimir el apellido 
+//        System.out.println(pf.listaClientes[valorElegido].getApellido());
+//        
     }//GEN-LAST:event_cbx_clientesActionPerformed
 
     private void btt_menuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_menuMouseEntered
         // TODO add your handling code here:
         btt_menu.setBackground(new java.awt.Color(255,153,51));
+      
     }//GEN-LAST:event_btt_menuMouseEntered
 
     private void btt_menuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_menuMouseExited
@@ -221,6 +248,48 @@ public class VcrearCuentas extends javax.swing.JFrame {
     }//GEN-LAST:event_btt_crearMouseExited
 
     private void btt_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_crearActionPerformed
+
+        //numeor de id
+        int id = 0;
+        id = (int)  (Math.random() * 999 +100);
+        //cantidad de dinero que tiene la cuenta en ese mometo
+        double saldo = 0;
+        //hacer un objeto de tipo registraCliente para llamar a la listaClientes donde registramos los CLIENTES
+        VregistrarCliente lista = new VregistrarCliente();
+        
+        int valorElegido = cbx_clientes.getSelectedIndex();
+        int cui = lista.listaClientes[valorElegido].getCui();
+        
+        //Para hacer las cuentas
+        Cuenta nuevaCuenta = new Cuenta(id, cui, saldo);
+        
+        try{
+            boolean bandera = false;
+            //AQUI SE AGREGAN LAS CUENTAS
+            for(int i= 0; i < lista.listaClientes[valorElegido].getCuentasAsociadas().length; i++){
+                if(lista.listaClientes[valorElegido].getCuentasAsociadas()[i] == null){
+                    lista.listaClientes[valorElegido].getCuentasAsociadas()[i] = nuevaCuenta; 
+                    JOptionPane.showMessageDialog(null, "Cuenta creada exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+                    bandera = true;
+                    break;     
+                }
+            }
+            
+            if(bandera == false){
+                    JOptionPane.showMessageDialog(null, "No es posible crear más cuentas para este cliente", "Limite de usuarios", JOptionPane.ERROR_MESSAGE);
+            }
+        
+            for(int i= 0; i < lista.listaClientes.length; i++){
+                    lista.listaClientes[valorElegido].getCuentasAsociadas()[i].imprimirCuenta();
+            }
+            
+        }catch(NullPointerException ex){            
+        }
+ 
+         
+        
+        
+        
         
     }//GEN-LAST:event_btt_crearActionPerformed
 
@@ -237,7 +306,6 @@ public class VcrearCuentas extends javax.swing.JFrame {
         VregistrarCliente fp = new VregistrarCliente();
         cbx_clientes.removeAllItems();
         
-        System.out.println("IMPRIMIENDO DESDE EL FRAME 2");
         Cliente[] paraCbxTemp = fp.listaClientes;
 
         for(int i = 0; i < paraCbxTemp.length; i++ ){
@@ -291,5 +359,6 @@ public class VcrearCuentas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lbl_indice;
     // End of variables declaration//GEN-END:variables
 }

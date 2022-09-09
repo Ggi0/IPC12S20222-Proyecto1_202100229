@@ -1,17 +1,13 @@
 
 import javax.swing.JOptionPane;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 /**
  *
  * @author Administrador
  */
 public class VregistrarCliente extends javax.swing.JFrame {
     
+    //lista de clientes
     static public Cliente[] listaClientes = new Cliente[5]; //El programa unicamente acepta 5 clientes
 
     /**
@@ -278,91 +274,40 @@ public class VregistrarCliente extends javax.swing.JFrame {
 
     private void btt_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_crearActionPerformed
         // AGREGAR CLIENTES
-        //HAcer un nuevo cliente
-        //-----------------------------------------------Datos para RGISTRAR UN CLINETE
-        
-        if(txt_cui.getText().equals("") || txt_Apellido.getText().equals("") || txt_Nombre.getText().equals("")){
+        //Hacer un nuevo cliente
+        //-----------------------------------------------Datos para REGISTRAR UN CLINETE
+
+        if (txt_cui.getText().equals("") || txt_Apellido.getText().equals("") || txt_Nombre.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "\nNo dejar campos vacios", "Alerta", JOptionPane.ERROR_MESSAGE);
-        }else{
-            System.out.println("primer intento");
-            Cliente nuevoCliente = new Cliente(Integer.parseInt(txt_cui.getText()), txt_Apellido.getText(),txt_Nombre.getText());
-            
-            try{
+        } else {
+            Cliente nuevoCliente = new Cliente(Integer.parseInt(txt_cui.getText()), txt_Apellido.getText(), txt_Nombre.getText());
+            try {
                 boolean bandera = false;
-                
-                /*
-                int[] a = {Integer.parseInt(txt_cui.getText())};
-               
-                for(int i = 0; i < listaClientes.length; i++){
-                    for(int j = 0 ; j < a.length;j++){
-                        if(listaClientes[i].getCui() == a[j]){
-                            JOptionPane.showMessageDialog(null, "El CUI ingresado ya existe dentro del sistema", "Información", JOptionPane.INFORMATION_MESSAGE);
-                        }
-                    }     
-                }
-                */
-                for(int i = 0; i < listaClientes.length; i++){              
-                    if(listaClientes[i] == null){
-                            listaClientes[i] = nuevoCliente;
-                            JOptionPane.showMessageDialog(null, "Cliente creado exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
-                            bandera = true;
-                            txt_cui.setText("");
-                            txt_Apellido.setText("");
-                            txt_Nombre.setText("");
-                            break;            
+                //AQUI SE AGREGAN LOS CLIENTES
+                for (int i = 0; i < listaClientes.length; i++) {
+                    if (listaClientes[i] == null) {
+                        listaClientes[i] = nuevoCliente;
+                        JOptionPane.showMessageDialog(null, "Cliente creado exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+                        bandera = true;
+                        txt_cui.setText("");
+                        txt_Apellido.setText("");
+                        txt_Nombre.setText("");
+                        break;
                     }
                 }
-                
-                //if(listaClientes[i].getCui() == Integer.parseInt(txt_cui.getText())){
-                  //          JOptionPane.showMessageDialog(null, "El CUI ingresado ya existe dentro del sistema", "Información", JOptionPane.INFORMATION_MESSAGE); 
-           
-                if(bandera == false){
+                if (bandera == false) {
                     JOptionPane.showMessageDialog(null, "No es posible crear más clientes", "Limite de usuarios", JOptionPane.ERROR_MESSAGE);
                     txt_cui.setText("");
                     txt_Apellido.setText("");
                     txt_Nombre.setText("");
                 }
-            
-                for(int i = 0; i <listaClientes.length; i++){
-                    listaClientes[i].imprimir();   
+                for (int i = 0; i < listaClientes.length; i++) {
+                    listaClientes[i].imprimir();
                 }
-            }catch(NullPointerException ex){
+            } catch (NullPointerException ex) {
+                System.out.println("hay error");
             }
-            
         }
-        
-/*
-        try{
-            Cliente nuevoCliente = new Cliente(Integer.parseInt(txt_cui.getText()), txt_Apellido.getText(),txt_Nombre.getText());
-            
-            try{
-                boolean bandera = false;
-                for(int i = 0; i < listaClientes.length; i++){
-                    if(listaClientes[i] == null){
-                        listaClientes[i] = nuevoCliente;
-                        bandera = true;
-                        break;
-                    }
-                }
-        
-                if(bandera == false){
-                    JOptionPane.showMessageDialog(null, "Limite de usuarios lleno", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            
-                for(int i = 0; i <listaClientes.length; i++){
-                    listaClientes[i].imprimir();   
-                }
-                
-            }catch(NullPointerException ex){
-                System.out.println("hola - error vacio");
-            }
-        }catch(NumberFormatException ex){
-            JOptionPane.showMessageDialog(null, "\nNo dejar campos vacios", "Error", JOptionPane.ERROR_MESSAGE);
-            
-        } 
-    */
-        
-        
     }//GEN-LAST:event_btt_crearActionPerformed
 
     private void btt_menuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_menuMouseEntered

@@ -196,17 +196,17 @@ public class VentanaMenu extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btt_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btt_CrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btt_InfoClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btt_Transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btt_Transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btt_InfoClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btt_Deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btt_Servicios, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btt_Historial)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 50)); // NOI18N
@@ -218,20 +218,22 @@ public class VentanaMenu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(142, 142, 142))
+                .addGap(150, 150, 150))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -242,7 +244,7 @@ public class VentanaMenu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -326,6 +328,11 @@ public class VentanaMenu extends javax.swing.JFrame {
 
     private void btt_DepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_DepositoActionPerformed
         // TODO add your handling code here:
+        Vdepositar llamarVentana = new Vdepositar();
+        llamarVentana.setVisible(true);
+        
+        this.setVisible(false);
+       
     }//GEN-LAST:event_btt_DepositoActionPerformed
 
     private void btt_TransferenciaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_TransferenciaMouseEntered
@@ -340,6 +347,10 @@ public class VentanaMenu extends javax.swing.JFrame {
 
     private void btt_TransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_TransferenciaActionPerformed
         // TODO add your handling code here:
+        Vtransferencia llamarVentana = new Vtransferencia();
+        llamarVentana.setVisible(true);
+        
+        this.setVisible(false);
     }//GEN-LAST:event_btt_TransferenciaActionPerformed
 
     private void btt_ServiciosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_ServiciosMouseEntered
@@ -354,6 +365,10 @@ public class VentanaMenu extends javax.swing.JFrame {
 
     private void btt_ServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_ServiciosActionPerformed
         // TODO add your handling code here:
+        Vservicio llamarVentana = new Vservicio();
+        llamarVentana.setVisible(true);
+        
+        this.setVisible(false);
     }//GEN-LAST:event_btt_ServiciosActionPerformed
 
     private void btt_HistorialMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_HistorialMouseEntered
@@ -368,6 +383,10 @@ public class VentanaMenu extends javax.swing.JFrame {
 
     private void btt_HistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_HistorialActionPerformed
         // TODO add your handling code here:
+        Vhistorial llamarVentana = new Vhistorial();
+        llamarVentana.setVisible(true);
+        
+        this.setVisible(false);
     }//GEN-LAST:event_btt_HistorialActionPerformed
 
     /**

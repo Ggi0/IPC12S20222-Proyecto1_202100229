@@ -25,6 +25,8 @@ public class Cliente {
         this.cuentasAsociadas = new Cuenta[5]; //5 cuentas por cliente --- 5 espacios reservados
         
     }
+    
+    
         
     
     public void imprimir(){

@@ -21,6 +21,10 @@ public class Cuenta {
         this.dpiCliente = dpiCliente;
         this.saldo = saldo;  
     }
+    
+    public void imprimirCuenta(){
+        System.out.println("ID: " + this.id + ", DPI cliente: " +this.dpiCliente + ", Saldo: " + this.saldo);
+    }
 
     public int getId() {
         return id;
